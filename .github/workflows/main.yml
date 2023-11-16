@@ -13,8 +13,7 @@ jobs:
 
     - name: Build Jekyll site
       run: |
-        gem install --user-install jekyll bundler
-        bundle config set --local path 'vendor/'
+        sudo gem install jekyll bundler
         bundle install
         bundle exec jekyll build
 
