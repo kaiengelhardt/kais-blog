@@ -24,6 +24,7 @@ jobs:
       run: |
         pwd
         echo Wurst
+        ls -a
 
     - name: Deploy via SFTP
       uses: Luis97lol/PSFTP@v1.4
