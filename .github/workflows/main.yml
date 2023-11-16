@@ -20,6 +20,11 @@ jobs:
     - name: Install putty-tools
       run: sudo apt-get update && sudo apt-get install -y putty-tools
 
+    - name: Echo
+      run: |
+        pwd
+        echo Wurst
+
     - name: Deploy via SFTP
       uses: Luis97lol/PSFTP@v1.4
       with:
