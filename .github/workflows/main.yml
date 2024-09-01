@@ -26,5 +26,5 @@ jobs:
         host: ${{ secrets.ftp_url }}
         user: ${{ secrets.ftp_user }}
         pass: ${{ secrets.ftp_password }}
-        scriptPath: deploy.sh
+        scriptPath: ../../deploy.sh
 
