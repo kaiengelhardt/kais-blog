@@ -17,12 +17,6 @@ jobs:
         sudo bundle install
         bundle exec jekyll build
 
-    - name: Echo
-      run: |
-        pwd
-        echo Wurst
-        ls -a
-
     - name: lftp-mirror-action
       uses: pressidium/lftp-mirror-action@v1
       with:
