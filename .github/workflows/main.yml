@@ -32,6 +32,6 @@ jobs:
         host: ${{ secrets.ftp_url }}
         user: ${{ secrets.ftp_user }}
         pass: ${{ secrets.ftp_password }}
-		hostkey: ${{ secrets.ssh_key }}
+        hostkey: ${{ secrets.ssh_key }}
         scriptPath: deploy.sh
 
