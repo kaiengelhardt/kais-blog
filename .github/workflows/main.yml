@@ -26,12 +26,20 @@ jobs:
         echo Wurst
         ls -a
 
-    - name: Deploy via SFTP
-      uses: Luis97lol/PSFTP@v1.4
+    - name: lftp-mirror-action
+      uses: pressidium/lftp-mirror-action@v1
       with:
-        host: ${{ secrets.ftp_url }}
-        user: ${{ secrets.ftp_user }}
-        pass: ${{ secrets.ftp_password }}
-        hostkey: ${{ secrets.ssh_key }}
-        scriptPath: deploy.sh
-
+          # SFTP credentials
+          host: ${{ secrets.ftp_url }}
+          port: ${{ secrets.ftp_port }}
+          user: ${{ secrets.ftp_user }}
+          pass: ${{ secrets.ftp_password }}
+          # lftp settings
+          onlyNewer: true
+          settings: 'sftp:auto-confirm=yes'
+          # Mirror command options
+          localDir: '_dist'
+          remoteDir: '.'
+          reverse: true
+          ignoreFile: '.lftp_ignore'
+          options: '--verbose'
