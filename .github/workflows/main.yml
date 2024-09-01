@@ -17,11 +17,14 @@ jobs:
         bundle install
         bundle exec jekyll build
 
+    - name: Install putty-tools
+      run: sudo apt-get update && sudo apt-get install -y putty-tools
+
     - name: Deploy via SFTP
-      uses: sebastianpopp/sftp-action@v1
+      uses: Luis97lol/PSFTP@v1.4
       with:
         host: ${{ secrets.ftp_url }}
-        username: ${{ secrets.ftp_user }}
-        password: ${{ secrets.ftp_password }}
-        local_path: ./_site/
-        remote_path: .
+        user: ${{ secrets.ftp_user }}
+        pass: ${{ secrets.ftp_password }}
+        scriptPath: deploy.sh
+
