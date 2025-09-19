@@ -1,7 +1,7 @@
 +++
 title = 'Hello Hugo'
 date = '2025-09-18T22:29:37+02:00'
-draft = true
+draft = false
 tags = []
 categories = []
 +++
