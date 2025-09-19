@@ -1,3 +1,19 @@
 .highlight pre {
     tab-size: 4;
 }
+
+body {
+    background-color: #f4f2ea !important;
+}
+
+body.dark {
+    background-color: #0f1622 !important;
+}
+
+:root {
+    --theme: #f4f2ea;
+}
+
+.dark {
+    --theme: #0f1622;
+}
