@@ -1,0 +1,10 @@
+.git/
+.github/
+.gitignore
+.DS_Store
+Thumbs.db
+*.swp
+*~
+node_modules/
+resources/
+.hugo_build.lock

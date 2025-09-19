@@ -1,0 +1,51 @@
+name: Build and Deploy Hugo Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: 'latest'
+        extended: true
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Download Hugo modules
+      run: |
+        hugo mod get -u
+        hugo mod verify
+
+    - name: Build Hugo site
+      run: hugo --minify
+
+    - name: Deploy to server via SFTP
+      uses: pressidium/lftp-mirror-action@v1
+      with:
+        host: ${{ secrets.ftp_url }}
+        port: ${{ secrets.ftp_port }}
+        user: ${{ secrets.ftp_user }}
+        pass: ${{ secrets.ftp_password }}
+        onlyNewer: true
+        settings: 'sftp:auto-confirm=yes'
+        localDir: 'public'
+        remoteDir: '.'
+        reverse: true
+        ignoreFile: '.lftp_ignore'
+        options: '--verbose'
