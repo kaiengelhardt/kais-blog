@@ -1,0 +1,118 @@
+baseURL: "https://kaiengelhardt.com/"
+languageCode: en-us
+title: iOS Development with Kai
+pagination:
+  pagerSize: 10
+
+module:
+  hugoVersion:
+    min: 0.128.0
+    extended: true
+  imports:
+    - path: "github.com/adityatelange/hugo-PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+        title: true
+  highlight:
+    noClasses: false
+    style: github-dark
+    tabWidth: 4
+
+pygmentsUseClasses: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+menu:
+  main:
+    - identifier: archives
+      name: Archive
+      url: /archive/
+      weight: 10
+    - identifier: portfolio
+      name: Portfolio
+      url: https://bento.me/kaiengelhardt
+      weight: 20
+
+params:
+  env: production
+  title: iOS Development with Kai
+  description: Adventures in Swift and sometimes Objective-C
+  keywords: [Blog, Portfolio, PaperMod]
+  author: Kai Engelhardt
+  images: ["/kai-engelhardt.jpg"]
+  DateFormat: "2 January 2006"
+  defaultTheme: auto
+  disableThemeToggle: true
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    favicon: "/kai-engelhardt-logo-favicon.svg"
+    favicon16x16: "/kai-engelhardt-logo-favicon-16.png"
+    favicon32x32: "/kai-engelhardt-logo-favicon-32.png"
+    apple_touch_icon: "/kai-engelhardt-logo-apple-touch-icon.png"
+    safari_pinned_tab: "/kai-engelhardt-logo-monochrome.svg"
+
+  label:
+    text: "Home"
+    icon: /kai-engelhardt-logo.svg
+    iconHeight: 35
+
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+
+  socialIcons:
+    - name: mastodon
+      url: "https://mastodon.social/@kaiengelhardt"
+    - name: github
+      url: "https://github.com/kaiengelhardt"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/kaiengelhardt/"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
