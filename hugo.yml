@@ -1,6 +1,6 @@
 baseURL: "https://kaiengelhardt.com/"
 languageCode: en-us
-title: iOS Development with Kai
+title: Kai Engelhardt
 pagination:
   pagerSize: 10
 
@@ -46,22 +46,25 @@ menu:
 
 params:
   env: production
-  title: iOS Development with Kai
+  title: Kai Engelhardt
   description: Adventures in Swift and sometimes Objective-C
-  keywords: [Blog, Portfolio, PaperMod]
+  keywords: [Apple, Swift, Objective-C, Xcode, iOS, macOS, tvOS, watchOS, visionOS, iPhone, Mac]
   author: Kai Engelhardt
   images: ["/kai-engelhardt.jpg"]
   DateFormat: "2 January 2006"
   defaultTheme: auto
   disableThemeToggle: true
 
+  ShowShareButtons: false
+  # ShareButtons: ["mastodon", "x", "reddit", "linkedin"]
+
   ShowReadingTime: true
-  ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
+  ShowFullTextinRSS: true
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -70,6 +73,7 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+  hideFooter: false
 
   assets:
     favicon: "/kai-engelhardt-logo-favicon.svg"
@@ -79,13 +83,12 @@ params:
     safari_pinned_tab: "/kai-engelhardt-logo-monochrome.svg"
 
   label:
-    text: "Home"
     icon: /kai-engelhardt-logo.svg
     iconHeight: 35
 
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Title: "\U0001F44B Hi, I'm Kai!"
+    Content: Welcome to my blog about Apple platform development and other topics.
 
   socialIcons:
     - name: mastodon
