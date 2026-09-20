@@ -3,17 +3,13 @@
 }
 
 body {
-    background-color: #f4f2ea !important;
-}
-
-body.dark {
-    background-color: #0f1622 !important;
+    background-color: var(--theme) !important;
 }
 
 :root {
     --theme: #f4f2ea;
 }
 
-.dark {
+:root[data-theme="dark"] {
     --theme: #0f1622;
 }
