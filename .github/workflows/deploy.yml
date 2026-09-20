@@ -23,7 +23,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: 'latest'
+        hugo-version: '0.166.0'
         extended: true
 
     - name: Setup Go
@@ -33,7 +33,7 @@ jobs:
 
     - name: Download Hugo modules
       run: |
-        hugo mod get -u
+        hugo mod graph
         hugo mod verify
 
     - name: Build Hugo site
