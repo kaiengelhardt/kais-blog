@@ -76,7 +76,7 @@ remain separate milestones.
 ## Appearance control
 
 [AppearanceControl](../../src/components/AppearanceControl.astro) is a labeled
-native select shared by every page. System is the default. Selecting Light or
+native select in the footer shared by every page. System is the default. Selecting Light or
 Dark saves the choice in `localStorage`; selecting System removes it.
 
 [The appearance script](../../src/scripts/appearance.js) is included inline in
