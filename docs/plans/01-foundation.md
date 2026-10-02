@@ -18,22 +18,28 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 ## Milestones
 
 1. [x] **Minimal Astro project.** Add package scripts, lockfile, Astro/TypeScript
-   configuration, and one bare homepage. Local development and static build work.
-   The existing `.gitignore` already covers dependencies and generated output.
+       configuration, and one bare homepage. Local development and static build work.
+       The existing `.gitignore` already covers dependencies and generated output.
 2. [ ] **Shared page document.** Add one layout with title, description, language,
-   viewport, and canonical URL. Set the confirmed domain and consistent trailing
-   slashes. One page demonstrates the layout.
+       viewport, and canonical URL. Set the confirmed domain and consistent trailing
+       slashes. One page demonstrates the layout.
 3. [ ] **Restore identity assets.** Recover the approved logo, favicons, and Apple
-   touch icon from the backup branch into the new asset structure. Link icons
-   in the document head. Do not restore the legacy article or portrait.
+       touch icon from the backup branch into the new asset structure. Link icons
+       in the document head. Do not restore the legacy article or portrait.
 4. [ ] **Image convention.** Add one responsive local image example with intrinsic
-   dimensions and meaningful alternative text. Document the authoring convention
-   beside the feature that first uses it.
+       dimensions and meaningful alternative text. Document the authoring convention
+       beside the feature that first uses it.
 5. [ ] **Discovery metadata.** Add social sharing metadata and a sitemap that includes
-   only public pages. Give each content feature responsibility for its own
-   publication filtering. Avoid invented social preview images.
+       only public pages. Give each content feature responsibility for its own
+       publication filtering. Avoid invented social preview images.
 6. [ ] **Missing-page experience.** Add an accessible 404 page with working navigation.
-   STRATO's response behavior is handled in the deployment plan.
+       STRATO's response behavior is handled in the deployment plan.
+
+## Additional foundation work
+
+- [x] **Formatting and pre-commit checks.** Requested before milestone 2. Adopt
+      Celia's Prettier, ESLint, Stylelint, and staged-file hook; format existing
+      files and verify partial staging and failed-commit recovery.
 
 Testing is part of each change, not a separate milestone. Keep the package build
 and type checks as the baseline; add focused behavioral checks as logic appears.

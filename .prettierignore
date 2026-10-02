@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.husky/_/
+.claude/
+package-lock.json
+# Keep Markdown articles and their frontmatter as authored in PagesCMS.
+src/content/

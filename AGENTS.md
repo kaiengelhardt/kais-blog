@@ -12,5 +12,6 @@ Finish with a code walkthrough grouped in a logical reading order.
   [the plan index](docs/plans/README.md) for scope and review status. Implement
   only the requested milestone from an approved plan.
 - Naming content: use [the glossary](CONTEXT.md).
+- Formatting, linting, or Git hooks: read [the tooling guide](README.md#formatting-and-linting).
 - Adding instructions: keep this file a lean hub; put detailed guidance beside
   the relevant plan or implementation.
