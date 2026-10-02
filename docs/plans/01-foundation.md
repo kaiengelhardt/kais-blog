@@ -32,7 +32,7 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 5. [x] **Discovery metadata.** Add social sharing metadata and a sitemap that includes
        only public pages. Give each content feature responsibility for its own
        publication filtering. Avoid invented social preview images.
-6. [ ] **Missing-page experience.** Add an accessible 404 page with working navigation.
+6. [x] **Missing-page experience.** Add an accessible 404 page with working navigation.
        STRATO's response behavior is handled in the deployment plan.
 
 ## Additional foundation work
@@ -51,8 +51,8 @@ social metadata. Preview images remain unset until appropriate images are suppli
 
 The [official sitemap integration](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 generates `/sitemap-index.xml` and its numbered sitemap files during the build.
-The document head links to the index. The homepage is currently the only public
-page.
+The document head links to the index. The homepage is currently the only content
+page; the integration excludes the 404 error page.
 
 Each content feature owns its publication rule and must exclude unpublished
 content from production routes as well as listings and feeds. The sitemap then

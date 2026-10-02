@@ -30,4 +30,11 @@ assert.deepEqual(
   ['https://kaiengelhardt.com/'],
 );
 
-console.log('Passed build checks: homepage document, sharing metadata, page content, and sitemap.');
+const notFound = readFileSync(new URL('../dist/404.html', import.meta.url), 'utf8');
+assert.match(notFound, /<title>Page not found \| Kai Engelhardt<\/title>/);
+assert.match(notFound, /<main\b[^>]*>\s*<h1\b[^>]*>404 — Page not found<\/h1>/);
+assert.match(notFound, /<a href="\/">Go to the homepage<\/a>/);
+assert.match(notFound, /<meta name="robots" content="noindex">/);
+assert.doesNotMatch(html, /<meta name="robots" content="noindex">/);
+
+console.log('Passed build checks: homepage, sharing metadata, sitemap, and 404 page.');
