@@ -16,7 +16,7 @@ on a neutral surface instead of recoloring them to match the page background.
 ## Milestones
 
 1. [x] **Typography and spacing.** Establish readable body width, a small spacing
-       scale, expressive serif headings, and a clean sans-serif body face. Compare
+       scale, expressive sans-serif headings, and a clean sans-serif body face. Compare
        actual font choices with Kai using one representative page; self-host fonts.
 2. [ ] **Light and dark colors.** Implement the chosen palette as CSS custom
        properties, following system appearance. Establish readable text, links,
@@ -41,9 +41,9 @@ destinations.
 
 ## Typography implementation
 
-The review candidate pairs Newsreader headings with Inter body text. A comparison
-with Source Serif 4 headings is provided for Kai's font selection. Only the
-candidate pair is installed in the site.
+Kai selected Bricolage Grotesque headings with Space Grotesk body text. Headings
+use weight 750, optical size 48, and slightly tighter letter spacing to match the
+approved comparison. Body text uses the regular weight 400.
 
 [The shared stylesheet](../../src/styles/site.css) owns font families, heading
 sizes, reading width, and the four spacing tokens. The homepage supplies the

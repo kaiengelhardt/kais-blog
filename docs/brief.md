@@ -35,8 +35,8 @@ Cards look suspended through layering; they do not continuously float around.
 Use restrained hover transitions and static gradients. Respect reduced-motion
 preferences.
 
-Pair expressive serif headings with clean sans-serif body text; host fonts locally.
-Choose the actual font families during the first visual milestone. The selected
+Pair Bricolage Grotesque sans-serif headings with Space Grotesk body text; host
+fonts locally. Kai selected this pairing during the first visual milestone. The selected
 color direction is Copper Hour: copper, peach, and burgundy, inspired by warm
 evening light across metal and glass. Starting colors live in the visual plan.
 
