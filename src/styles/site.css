@@ -1,10 +1,10 @@
 :root {
-  color-scheme: light;
-  --color-background: #faf7f3;
-  --color-surface: #fffdfb;
-  --color-text: #302720;
-  --color-link: #8c432b;
-  --color-link-hover: #70394f;
+  color-scheme: light dark;
+  --color-background: light-dark(#faf7f3, #181513);
+  --color-surface: light-dark(#fffdfb, #24201d);
+  --color-text: light-dark(#302720, #f3eae2);
+  --color-link: light-dark(#8c432b, #efb69e);
+  --color-link-hover: light-dark(#70394f, #e6b0c7);
   --font-body: 'Space Grotesk Variable', system-ui, sans-serif;
   --font-heading: 'Bricolage Grotesque Variable', system-ui, sans-serif;
   --space-1: 0.5rem;
@@ -13,15 +13,12 @@
   --space-4: 3rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --color-background: #181513;
-    --color-surface: #24201d;
-    --color-text: #f3eae2;
-    --color-link: #efb69e;
-    --color-link-hover: #e6b0c7;
-  }
+:root[data-appearance='light'] {
+  color-scheme: light;
+}
+
+:root[data-appearance='dark'] {
+  color-scheme: dark;
 }
 
 *,
@@ -81,7 +78,8 @@ a:hover {
   color: var(--color-link-hover);
 }
 
-a:focus-visible {
+a:focus-visible,
+select:focus-visible {
   outline: 2px solid currentcolor;
   outline-offset: var(--space-1);
 }

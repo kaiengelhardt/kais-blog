@@ -2,6 +2,8 @@
 import '@fontsource-variable/bricolage-grotesque/opsz.css';
 import '@fontsource-variable/space-grotesk';
 import '../styles/site.css';
+import AppearanceControl from '../components/AppearanceControl.astro';
+import appearanceScript from '../scripts/appearance.js?raw';
 
 interface Props {
   title: string;
@@ -19,6 +21,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline set:html={appearanceScript} />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
@@ -38,6 +41,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="apple-touch-icon" sizes="180x180" href="/kai-engelhardt-logo-apple-touch-icon.png" />
   </head>
   <body>
+    <AppearanceControl />
     <main>
       <slot />
     </main>

@@ -21,7 +21,7 @@ on a neutral surface instead of recoloring them to match the page background.
 2. [x] **Light and dark colors.** Implement the chosen palette as CSS custom
        properties, following system appearance. Establish readable text, links,
        focus indicators, and opaque surface fallbacks before decorative effects.
-3. [ ] **Appearance control.** Add a compact system/light/dark choice and remember an
+3. [x] **Appearance control.** Add a compact system/light/dark choice and remember an
        explicit selection. Work safely if storage is unavailable and avoid a flash
        of the wrong theme. Verify this interaction with a focused runnable check.
 4. [ ] **Gradient and dot background.** Add static streaks and subtle localized dots
@@ -62,12 +62,30 @@ warm off-white surfaces with dark copper links; dark appearance uses deep warm
 neutrals with peach links. Hovered links lean toward burgundy in light appearance
 and a lighter rose in dark appearance.
 
-`prefers-color-scheme` overrides the light defaults when the system requests
-dark appearance. `color-scheme` also tells the browser which appearance to use
-for its native UI. No JavaScript is needed for this milestone.
+Each token uses `light-dark(light, dark)`. With `color-scheme: light dark`, the
+browser follows system appearance automatically, including changes while the
+page is open. An explicit appearance sets `color-scheme` to `light` or `dark`.
+This also tells the browser which appearance to use for its native UI.
 
 The main reading area has an opaque surface, ready to remain readable when
 decorative backgrounds arrive. Links retain underlines, and the keyboard focus
 outline uses their current color. Text and both link colors meet at least 4.5:1
-contrast against both surfaces in each appearance. The appearance control,
-gradients, and glass treatment remain separate milestones.
+contrast against both surfaces in each appearance. Gradients and glass treatment
+remain separate milestones.
+
+## Appearance control
+
+[AppearanceControl](../../src/components/AppearanceControl.astro) is a labeled
+native select shared by every page. System is the default. Selecting Light or
+Dark saves the choice in `localStorage`; selecting System removes it.
+
+[The appearance script](../../src/scripts/appearance.js) is included inline in
+the layout's head so a saved choice applies before the page content paints.
+After the document is ready, it connects the select and reveals the control.
+Without JavaScript the control stays hidden and CSS follows system appearance.
+If storage is blocked, selection still works for the current page; persistence
+across navigation is unavailable. Unrecognized saved values fall back to System.
+
+`npm run test:build` includes a focused check of the built script placement,
+early restoration, selection, persistence, and unavailable storage. Browser
+checks cover actual colors and the native select's keyboard behavior.
