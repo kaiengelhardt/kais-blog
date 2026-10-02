@@ -5,6 +5,9 @@
   --color-text: light-dark(#302720, #f3eae2);
   --color-link: light-dark(#8c432b, #efb69e);
   --color-link-hover: light-dark(#70394f, #e6b0c7);
+  --color-glass: light-dark(rgb(255 253 251 / 88%), rgb(36 32 29 / 84%));
+  --color-glass-border: light-dark(rgb(255 255 255 / 70%), rgb(255 255 255 / 14%));
+  --color-glass-shadow: light-dark(rgb(48 27 20 / 10%), rgb(0 0 0 / 28%));
   --gradient-copper: light-dark(rgb(166 94 69 / 24%), rgb(166 94 69 / 55%));
   --gradient-peach: light-dark(rgb(239 182 158 / 55%), rgb(239 182 158 / 65%));
   --gradient-burgundy: light-dark(rgb(130 71 97 / 18%), rgb(130 71 97 / 50%));
@@ -90,7 +93,20 @@ main {
   margin-inline: auto;
   padding: var(--space-4) var(--space-3);
   overflow-wrap: anywhere;
+}
+
+.glass-surface {
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1.5rem;
   background-color: var(--color-surface);
+  box-shadow: 0 16px 48px var(--color-glass-shadow);
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .glass-surface {
+    background-color: var(--color-glass);
+    backdrop-filter: blur(16px);
+  }
 }
 
 h1,

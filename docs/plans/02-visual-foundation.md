@@ -27,7 +27,7 @@ on a neutral surface instead of recoloring them to match the page background.
 4. [x] **Gradient and dot background.** Add static streaks and subtle localized dots
        using CSS or a small local asset. Keep article reading areas quiet and avoid
        expensive full-page effects.
-5. [ ] **Glass card treatment.** Add translucent surfaces, fine edges, and restrained
+5. [x] **Glass card treatment.** Add translucent surfaces, fine edges, and restrained
        shadows. Preserve contrast without backdrop blur and allow content to grow.
 6. [ ] **Shared navigation and footer.** Link Home, About, Blog, Resume, and Apps.
        Place social and legal links in the footer. Add a skip link and a small-screen
@@ -67,11 +67,10 @@ browser follows system appearance automatically, including changes while the
 page is open. An explicit appearance sets `color-scheme` to `light` or `dark`.
 This also tells the browser which appearance to use for its native UI.
 
-The main reading area has an opaque surface, ready to remain readable when
-decorative backgrounds arrive. Links retain underlines, and the keyboard focus
+The main reading area has an opaque fallback surface. Links retain underlines, and the keyboard focus
 outline uses their current color. Text and both link colors meet at least 4.5:1
-contrast against both surfaces in each appearance. Glass treatment remains a
-separate milestone.
+contrast against both opaque surfaces in each appearance. Glass contrast is
+checked separately against the translucent surface.
 
 ## Appearance control
 
@@ -100,6 +99,19 @@ than repeating down long articles.
 
 Decorative colors use stronger opacity in dark appearance and softer opacity in
 light appearance. Responsive page padding reveals the background around the
-opaque reading and footer surfaces, including on narrow screens. Decorations
+reading and footer surfaces, including on narrow screens. Decorations
 stay behind the content and cannot intercept pointer input. There is no motion,
 JavaScript, image download, blur filter, or fixed background layer.
+
+## Glass surfaces
+
+The shared `.glass-surface` class gives the main reading area and appearance
+control a fine border, rounded corners, and a restrained shadow. Layout and
+spacing stay with their existing selectors; the class only owns the surface.
+Cards grow with their content and do not clip focus outlines.
+
+The default background is opaque. An `@supports` rule enables a translucent
+background and 16px backdrop blur together when the browser supports the filter.
+Light glass is 88% opaque; dark glass is 84% opaque. Text and link contrast stays
+above 4.5:1 even over the worst-case black or white backdrop, so readability does
+not depend on blur. Native form controls keep their opaque background.
