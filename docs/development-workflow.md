@@ -28,7 +28,9 @@ files: the working copy must still match the saved result.
 
 Keep both review branches until approval. Report that commits are preserved and
 the working copy is intentionally dirty. Finish with a walkthrough grouped in
-a logical reading order. Do not start the next milestone before Kai requests it.
+a logical reading order. End each turn by naming the current milestone just
+worked on and the next planned milestone. Do not start the next milestone before
+Kai requests it.
 
 Use this presentation only for unpublished task commits. Preserve unrelated
 staged changes before any mixed reset and verify their restoration afterward.
