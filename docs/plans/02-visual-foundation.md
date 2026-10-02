@@ -18,7 +18,7 @@ on a neutral surface instead of recoloring them to match the page background.
 1. [x] **Typography and spacing.** Establish readable body width, a small spacing
        scale, expressive sans-serif headings, and a clean sans-serif body face. Compare
        actual font choices with Kai using one representative page; self-host fonts.
-2. [ ] **Light and dark colors.** Implement the chosen palette as CSS custom
+2. [x] **Light and dark colors.** Implement the chosen palette as CSS custom
        properties, following system appearance. Establish readable text, links,
        focus indicators, and opaque surface fallbacks before decorative effects.
 3. [ ] **Appearance control.** Add a compact system/light/dark choice and remember an
@@ -53,3 +53,21 @@ Fontsource's variable font packages are imported by the layout and bundled into
 local assets by Astro. Visitors do not contact a font CDN. Their OFL licenses are
 included in `public/fonts/`. Use the existing CSS tokens when adding page styles;
 extend the scale only when the actual layout needs another value.
+
+## Color implementation
+
+The shared stylesheet defines five semantic color tokens: page background,
+opaque reading surface, text, links, and hovered links. Light appearance uses
+warm off-white surfaces with dark copper links; dark appearance uses deep warm
+neutrals with peach links. Hovered links lean toward burgundy in light appearance
+and a lighter rose in dark appearance.
+
+`prefers-color-scheme` overrides the light defaults when the system requests
+dark appearance. `color-scheme` also tells the browser which appearance to use
+for its native UI. No JavaScript is needed for this milestone.
+
+The main reading area has an opaque surface, ready to remain readable when
+decorative backgrounds arrive. Links retain underlines, and the keyboard focus
+outline uses their current color. Text and both link colors meet at least 4.5:1
+contrast against both surfaces in each appearance. The appearance control,
+gradients, and glass treatment remain separate milestones.

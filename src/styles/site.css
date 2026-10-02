@@ -1,10 +1,27 @@
 :root {
+  color-scheme: light;
+  --color-background: #faf7f3;
+  --color-surface: #fffdfb;
+  --color-text: #302720;
+  --color-link: #8c432b;
+  --color-link-hover: #70394f;
   --font-body: 'Space Grotesk Variable', system-ui, sans-serif;
   --font-heading: 'Bricolage Grotesque Variable', system-ui, sans-serif;
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
   --space-4: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #181513;
+    --color-surface: #24201d;
+    --color-text: #f3eae2;
+    --color-link: #efb69e;
+    --color-link-hover: #e6b0c7;
+  }
 }
 
 *,
@@ -15,6 +32,8 @@
 
 body {
   margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.65;
@@ -25,6 +44,7 @@ main {
   margin-inline: auto;
   padding: var(--space-4) var(--space-3);
   overflow-wrap: anywhere;
+  background-color: var(--color-surface);
 }
 
 h1,
@@ -53,7 +73,12 @@ p {
 }
 
 a {
+  color: var(--color-link);
   text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-link-hover);
 }
 
 a:focus-visible {
