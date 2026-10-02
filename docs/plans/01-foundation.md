@@ -23,7 +23,7 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 2. [x] **Shared page document.** Add one layout with title, description, language,
        viewport, and canonical URL. Set the confirmed domain and consistent trailing
        slashes. One page demonstrates the layout.
-3. [ ] **Restore identity assets.** Recover the approved logo, favicons, and Apple
+3. [x] **Restore identity assets.** Recover the approved logo, favicons, and Apple
        touch icon from the backup branch into the new asset structure. Link icons
        in the document head. Do not restore the legacy article or portrait.
 4. [ ] **Image convention.** Add one responsive local image example with intrinsic
