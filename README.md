@@ -24,7 +24,8 @@ npm run preview
 The build checks Astro and TypeScript before generating static files in `dist/`.
 Preview serves that output locally; it does not deploy it.
 
-Astro starts these servers in the background. Stop them when finished:
+In a normal terminal, stop the server with Ctrl+C. If it was started in
+background mode (for example, by an agent), use the matching stop command:
 
 ```sh
 npm run dev -- stop
