@@ -139,8 +139,20 @@ a {
   text-underline-offset: 0.2em;
 }
 
-a:hover {
+a:focus-visible {
   color: var(--color-link-hover);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    transition: color 140ms ease-out;
+  }
 }
 
 a:focus-visible,

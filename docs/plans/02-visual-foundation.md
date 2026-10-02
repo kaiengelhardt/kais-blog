@@ -33,7 +33,7 @@ on a neutral surface instead of recoloring them to match the page background.
        as their pages become public (see implementation below).
        Place social and legal links in the footer. Add a skip link and a small-screen
        navigation treatment with native semantics and visible keyboard focus.
-7. [ ] **Interaction polish.** Add the agreed restrained hover/focus transitions and
+7. [x] **Interaction polish.** Add the agreed restrained hover/focus transitions and
        reduced-motion handling. Responsive behavior and accessibility are checked
        during every milestone, including touch use and text zoom.
 
@@ -137,3 +137,15 @@ focus. The main element accepts focus without becoming an extra tab stop.
 
 The build check verifies this shared structure on Home and 404, including the
 production omission of unfinished destinations.
+
+## Interaction polish
+
+Links use the existing accent color on keyboard focus and on hover-capable
+devices. Only their color transitions, over 140ms; the focus outline appears
+immediately. Touch users do not depend on hover feedback, and link underlines
+remain visible in every state.
+
+The transition is enabled only inside `prefers-reduced-motion: no-preference`.
+Reduced-motion users get immediate color changes. The skip link also appears
+immediately, and the native appearance select retains its standard interaction.
+Reading surfaces and decorative backgrounds stay still.
