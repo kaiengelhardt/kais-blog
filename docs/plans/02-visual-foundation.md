@@ -15,7 +15,7 @@ on a neutral surface instead of recoloring them to match the page background.
 
 ## Milestones
 
-1. [ ] **Typography and spacing.** Establish readable body width, a small spacing
+1. [x] **Typography and spacing.** Establish readable body width, a small spacing
        scale, expressive serif headings, and a clean sans-serif body face. Compare
        actual font choices with Kai using one representative page; self-host fonts.
 2. [ ] **Light and dark colors.** Implement the chosen palette as CSS custom
@@ -38,3 +38,18 @@ on a neutral surface instead of recoloring them to match the page background.
 
 Recents and Archive are views within Blog, not primary navigation
 destinations.
+
+## Typography implementation
+
+The review candidate pairs Newsreader headings with Inter body text. A comparison
+with Source Serif 4 headings is provided for Kai's font selection. Only the
+candidate pair is installed in the site.
+
+[The shared stylesheet](../../src/styles/site.css) owns font families, heading
+sizes, reading width, and the four spacing tokens. The homepage supplies the
+representative heading and paragraph content; the 404 page uses the same styles.
+
+Fontsource's variable font packages are imported by the layout and bundled into
+local assets by Astro. Visitors do not contact a font CDN. Their OFL licenses are
+included in `public/fonts/`. Use the existing CSS tokens when adding page styles;
+extend the scale only when the actual layout needs another value.
