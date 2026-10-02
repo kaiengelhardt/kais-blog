@@ -2,8 +2,7 @@
 
 Status: Kai approved this index, the brief, and plans 01–02 on 2026-10-02.
 Plans 03–08 remain drafts for later review. Begin only the requested milestone
-from an approved plan. Technical foundation milestone 1 is complete; Kai also
-requested formatting, linting, and a pre-commit hook before milestone 2.
+from an approved plan. Track completed work in each plan's milestone checkboxes.
 
 ## Feature plans
 

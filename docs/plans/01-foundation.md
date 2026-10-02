@@ -20,7 +20,7 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 1. [x] **Minimal Astro project.** Add package scripts, lockfile, Astro/TypeScript
        configuration, and one bare homepage. Local development and static build work.
        The existing `.gitignore` already covers dependencies and generated output.
-2. [ ] **Shared page document.** Add one layout with title, description, language,
+2. [x] **Shared page document.** Add one layout with title, description, language,
        viewport, and canonical URL. Set the confirmed domain and consistent trailing
        slashes. One page demonstrates the layout.
 3. [ ] **Restore identity assets.** Recover the approved logo, favicons, and Apple

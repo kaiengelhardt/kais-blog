@@ -53,6 +53,7 @@ files and the npm lockfile are also excluded from formatting.
 | `npm run format`     | Format the project.                                                                                    |
 | `npm run check`      | Check formatting, lint rules, and types without modifying files.                                       |
 | `npm run test:hooks` | Exercise real commits in a temporary repository, including partial staging and failed-commit recovery. |
+| `npm run test:build` | Build the site and verify the homepage document, metadata, canonical URL, and page content.            |
 
 The hook checks staged files; run `npm run check` for project-wide checks.
 `npm run build` still checks types and builds the static site.
