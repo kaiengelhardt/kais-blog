@@ -24,7 +24,7 @@ on a neutral surface instead of recoloring them to match the page background.
 3. [x] **Appearance control.** Add a compact system/light/dark choice and remember an
        explicit selection. Work safely if storage is unavailable and avoid a flash
        of the wrong theme. Verify this interaction with a focused runnable check.
-4. [ ] **Gradient and dot background.** Add static streaks and subtle localized dots
+4. [x] **Gradient and dot background.** Add static streaks and subtle localized dots
        using CSS or a small local asset. Keep article reading areas quiet and avoid
        expensive full-page effects.
 5. [ ] **Glass card treatment.** Add translucent surfaces, fine edges, and restrained
@@ -70,8 +70,8 @@ This also tells the browser which appearance to use for its native UI.
 The main reading area has an opaque surface, ready to remain readable when
 decorative backgrounds arrive. Links retain underlines, and the keyboard focus
 outline uses their current color. Text and both link colors meet at least 4.5:1
-contrast against both surfaces in each appearance. Gradients and glass treatment
-remain separate milestones.
+contrast against both surfaces in each appearance. Glass treatment remains a
+separate milestone.
 
 ## Appearance control
 
@@ -89,3 +89,17 @@ across navigation is unavailable. Unrecognized saved values fall back to System.
 `npm run test:build` includes a focused check of the built script placement,
 early restoration, selection, persistence, and unavailable storage. Browser
 checks cover actual colors and the native select's keyboard behavior.
+
+## Background treatment
+
+Two decorative body pseudo-elements draw the background in CSS. Angled linear
+gradients create copper, peach, and burgundy streaks; a repeating radial gradient
+creates the dots. Masks fade the streaks downward and localize the dots near the
+upper-right edge. The layers are limited to the first 52rem of the page rather
+than repeating down long articles.
+
+Decorative colors use stronger opacity in dark appearance and softer opacity in
+light appearance. Responsive page padding reveals the background around the
+opaque reading and footer surfaces, including on narrow screens. Decorations
+stay behind the content and cannot intercept pointer input. There is no motion,
+JavaScript, image download, blur filter, or fixed background layer.

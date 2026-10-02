@@ -5,6 +5,10 @@
   --color-text: light-dark(#302720, #f3eae2);
   --color-link: light-dark(#8c432b, #efb69e);
   --color-link-hover: light-dark(#70394f, #e6b0c7);
+  --gradient-copper: light-dark(rgb(166 94 69 / 24%), rgb(166 94 69 / 55%));
+  --gradient-peach: light-dark(rgb(239 182 158 / 55%), rgb(239 182 158 / 65%));
+  --gradient-burgundy: light-dark(rgb(130 71 97 / 18%), rgb(130 71 97 / 50%));
+  --color-dots: light-dark(rgb(112 57 79 / 20%), rgb(239 182 158 / 25%));
   --font-body: 'Space Grotesk Variable', system-ui, sans-serif;
   --font-heading: 'Bricolage Grotesque Variable', system-ui, sans-serif;
   --space-1: 0.5rem;
@@ -28,12 +32,57 @@
 }
 
 body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
   margin: 0;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem);
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.65;
+}
+
+body::before,
+body::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: min(52rem, 100%);
+  pointer-events: none;
+  content: '';
+}
+
+body::before {
+  background-image:
+    linear-gradient(
+      128deg,
+      transparent 9%,
+      var(--gradient-copper) 16%,
+      var(--gradient-peach) 18%,
+      transparent 24%,
+      transparent 58%,
+      var(--gradient-burgundy) 65%,
+      transparent 73%
+    ),
+    linear-gradient(
+      118deg,
+      transparent 18%,
+      var(--gradient-burgundy) 26%,
+      transparent 36%,
+      transparent 49%,
+      var(--gradient-copper) 54%,
+      var(--gradient-peach) 56%,
+      transparent 63%
+    );
+  mask-image: linear-gradient(black 45%, transparent);
+}
+
+body::after {
+  background-image: radial-gradient(circle, var(--color-dots) 1px, transparent 1px);
+  background-size: 12px 12px;
+  mask-image: radial-gradient(ellipse 45% 55% at 85% 25%, black, transparent 75%);
 }
 
 main {
