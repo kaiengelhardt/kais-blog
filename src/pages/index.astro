@@ -10,12 +10,34 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 >
   <h1>Kai Engelhardt</h1>
   <p>Software engineer focused on iOS and Mac development, design, and engineering leadership.</p>
+  <p class="social-links">
+    <a href="https://github.com/kaiengelhardt">GitHub</a>
+    <a href="https://mastodon.social/@kaiengelhardt" rel="me">
+      Mastodon
+    </a>
+    <a href="https://www.linkedin.com/in/kaiengelhardt/">LinkedIn</a>
+  </p>
   <Image src={logo} alt="Kai Engelhardt’s logo" layout="constrained" />
   <h2>Design and leadership</h2>
   <p>Alongside development, I bring design skills and experience leading teams of engineers.</p>
+  <h2>Across platforms</h2>
+  <p>
+    My focus is iOS and Mac development. I also have experience with watchOS, tvOS, and building for
+    the web with TypeScript.
+  </p>
+  <p>
+    Explore my work on <a href="https://github.com/kaiengelhardt">GitHub</a>, or find my
+    professional background on <a href="https://www.linkedin.com/in/kaiengelhardt/">LinkedIn</a>.
+  </p>
 </SiteLayout>
 
 <style>
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+  }
+
   img {
     max-width: 100%;
     height: auto;
