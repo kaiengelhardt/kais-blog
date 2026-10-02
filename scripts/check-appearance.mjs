@@ -8,7 +8,7 @@ for (const page of ['index', '404']) {
   const head = html.slice(0, html.indexOf('</head>'));
   assert.ok(head.includes(`<script>${source}</script>`), 'Restore must be inline in the head.');
   assert.match(html, /id="appearance-control" hidden/);
-  assert.match(html, /<label[^>]*for="appearance"/);
+  assert.match(html, /<select[^>]*aria-label="Appearance"/);
 }
 
 function loadPage(saved = null, { blockRead = false, blockWrite = false } = {}) {
