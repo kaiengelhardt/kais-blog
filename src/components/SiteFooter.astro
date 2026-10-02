@@ -1,0 +1,79 @@
+---
+import AppearanceControl from './AppearanceControl.astro';
+---
+
+<footer class="site-footer glass-surface">
+  <div class="footer-heading">
+    <p>Kai Engelhardt</p>
+    <AppearanceControl />
+  </div>
+  <nav aria-label="Social">
+    <ul>
+      <li>
+        <a href="https://mastodon.social/@kaiengelhardt" rel="me">
+          Mastodon
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/kaiengelhardt">GitHub</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/kaiengelhardt/">LinkedIn</a>
+      </li>
+    </ul>
+  </nav>
+  {import.meta.env.DEV && (
+    <ul class="legal-preview">
+      <li>
+        <span lang="de" aria-disabled="true">
+          Impressum
+        </span>
+      </li>
+      <li>
+        <span lang="de" aria-disabled="true">
+          Datenschutz
+        </span>
+      </li>
+    </ul>
+  )}
+</footer>
+
+<style>
+  .site-footer {
+    max-width: 65ch;
+    margin: var(--space-2) auto 0;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .footer-heading,
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-3);
+  }
+
+  .footer-heading {
+    justify-content: space-between;
+  }
+
+  p,
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .legal-preview {
+    margin-top: var(--space-1);
+  }
+</style>

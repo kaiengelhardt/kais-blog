@@ -148,3 +148,18 @@ select:focus-visible {
   outline: 2px solid currentcolor;
   outline-offset: var(--space-1);
 }
+
+.skip-link {
+  position: absolute;
+  z-index: 1;
+  top: var(--space-1);
+  left: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 0.25rem;
+  background-color: var(--color-surface);
+  transform: translateY(calc(-100% - var(--space-2)));
+}
+
+.skip-link:focus {
+  transform: none;
+}

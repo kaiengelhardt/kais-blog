@@ -1,0 +1,46 @@
+<header class="site-header glass-surface">
+  <nav aria-label="Primary">
+    <ul>
+      <li>
+        <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>
+          Home
+        </a>
+      </li>
+      {import.meta.env.DEV &&
+        ['About', 'Blog', 'Resume', 'Apps'].map((label) => (
+          <li>
+            <span aria-disabled="true">{label}</span>
+          </li>
+        ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    max-width: 65ch;
+    margin: 0 auto var(--space-2);
+    padding: var(--space-1) var(--space-3);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a,
+  span {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  [aria-current='page'] {
+    font-weight: 600;
+    text-decoration-thickness: 2px;
+  }
+</style>

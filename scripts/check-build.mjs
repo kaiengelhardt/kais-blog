@@ -37,4 +37,21 @@ assert.match(notFound, /<a href="\/">Go to the homepage<\/a>/);
 assert.match(notFound, /<meta name="robots" content="noindex">/);
 assert.doesNotMatch(html, /<meta name="robots" content="noindex">/);
 
-console.log('Passed build checks: homepage, sharing metadata, sitemap, and 404 page.');
+for (const page of [html, notFound]) {
+  assert.match(page, /<a\b[^>]*href="#main-content"[^>]*>Skip to content<\/a>/);
+  assert.match(page, /<main\b[^>]*id="main-content"[^>]*tabindex="-1"/);
+  const header = page.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0];
+  const footer = page.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/)?.[0];
+  assert.ok(header && footer, 'Every page has the shared header and footer.');
+  assert.match(header, /<nav aria-label="Primary"/);
+  assert.match(header, /<a href="\/"[^>]*>Home<\/a>/);
+  assert.equal(header.includes('aria-current="page"'), page === html);
+  assert.doesNotMatch(header, /About|Blog|Resume|Apps/);
+  assert.doesNotMatch(footer, /Impressum|Datenschutz/);
+  assert.match(footer, /href="https:\/\/mastodon.social\/@kaiengelhardt" rel="me"/);
+  assert.match(footer, /href="https:\/\/github.com\/kaiengelhardt"/);
+  assert.match(footer, /href="https:\/\/www.linkedin.com\/in\/kaiengelhardt\/"/);
+  assert.match(footer, /<select\b[^>]*aria-label="Appearance"/);
+}
+
+console.log('Passed build checks: homepage, metadata, sitemap, 404, and shared navigation.');

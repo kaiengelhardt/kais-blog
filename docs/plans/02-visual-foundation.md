@@ -29,7 +29,8 @@ on a neutral surface instead of recoloring them to match the page background.
        expensive full-page effects.
 5. [x] **Glass card treatment.** Add translucent surfaces, fine edges, and restrained
        shadows. Preserve contrast without backdrop blur and allow content to grow.
-6. [ ] **Shared navigation and footer.** Link Home, About, Blog, Resume, and Apps.
+6. [x] **Shared navigation and footer.** Link Home, About, Blog, Resume, and Apps
+       as their pages become public (see implementation below).
        Place social and legal links in the footer. Add a skip link and a small-screen
        navigation treatment with native semantics and visible keyboard focus.
 7. [ ] **Interaction polish.** Add the agreed restrained hover/focus transitions and
@@ -105,8 +106,8 @@ JavaScript, image download, blur filter, or fixed background layer.
 
 ## Glass surfaces
 
-The shared `.glass-surface` class gives the main reading area and appearance
-control a fine border, rounded corners, and a restrained shadow. Layout and
+The shared `.glass-surface` class gives the header, main reading area, and footer
+a fine border, rounded corners, and a restrained shadow. Layout and
 spacing stay with their existing selectors; the class only owns the surface.
 Cards grow with their content and do not clip focus outlines.
 
@@ -115,3 +116,24 @@ background and 16px backdrop blur together when the browser supports the filter.
 Light glass is 88% opaque; dark glass is 84% opaque. Text and link contrast stays
 above 4.5:1 even over the worst-case black or white backdrop, so readability does
 not depend on blur. Native form controls keep their opaque background.
+
+## Navigation and footer
+
+[SiteHeader](../../src/components/SiteHeader.astro) owns the primary navigation.
+Home is currently the only public destination; its link uses `aria-current` on
+the homepage. About, Blog, Resume, and Apps appear as inactive text only in local
+development. Enable their links when each content feature publishes its page.
+Production builds omit these unfinished destinations entirely.
+
+[SiteFooter](../../src/components/SiteFooter.astro) owns the social links and
+the appearance control's surrounding surface and spacing. The German legal
+notice labels are likewise development-only until Plan 07 supplies their pages.
+These labels are not links and never enter the keyboard tab order.
+
+Both navigation lists wrap naturally on narrow screens without a menu script.
+Links and the appearance select have at least 44px-high touch targets. The shared
+layout's first link skips to the main content; it becomes visible on keyboard
+focus. The main element accepts focus without becoming an extra tab stop.
+
+The build check verifies this shared structure on Home and 404, including the
+production omission of unfinished destinations.
