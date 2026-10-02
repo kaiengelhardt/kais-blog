@@ -29,7 +29,7 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 4. [x] **Image convention.** Add one responsive local image example with intrinsic
        dimensions and meaningful alternative text. Document the authoring convention
        beside the feature that first uses it.
-5. [ ] **Discovery metadata.** Add social sharing metadata and a sitemap that includes
+5. [x] **Discovery metadata.** Add social sharing metadata and a sitemap that includes
        only public pages. Give each content feature responsibility for its own
        publication filtering. Avoid invented social preview images.
 6. [ ] **Missing-page experience.** Add an accessible 404 page with working navigation.
@@ -43,3 +43,20 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 
 Testing is part of each change, not a separate milestone. Keep the package build
 and type checks as the baseline; add focused behavioral checks as logic appears.
+
+## Discovery and publication
+
+The shared layout reuses each page's title, description, and canonical URL for
+social metadata. Preview images remain unset until appropriate images are supplied.
+
+The [official sitemap integration](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+generates `/sitemap-index.xml` and its numbered sitemap files during the build.
+The document head links to the index. The homepage is currently the only public
+page.
+
+Each content feature owns its publication rule and must exclude unpublished
+content from production routes as well as listings and feeds. The sitemap then
+inherits those public routes; it does not independently interpret draft fields.
+Implement the blog's filter with its collection, as described in
+[the blog plan](04-blog-cms.md). Omitting a URL from the sitemap alone does not
+make its page private.
