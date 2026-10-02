@@ -26,7 +26,7 @@ downloadable files, icons, and hosting configuration belong in `public/`.
 3. [x] **Restore identity assets.** Recover the approved logo, favicons, and Apple
        touch icon from the backup branch into the new asset structure. Link icons
        in the document head. Do not restore the legacy article or portrait.
-4. [ ] **Image convention.** Add one responsive local image example with intrinsic
+4. [x] **Image convention.** Add one responsive local image example with intrinsic
        dimensions and meaningful alternative text. Document the authoring convention
        beside the feature that first uses it.
 5. [ ] **Discovery metadata.** Add social sharing metadata and a sitemap that includes

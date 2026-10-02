@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/kai-engelhardt-logo.svg';
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
@@ -8,4 +10,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 >
   <h1>Kai Engelhardt</h1>
   <p>Software engineer focused on iOS and Mac development, design, and engineering leadership.</p>
+  <Image src={logo} alt="Kai Engelhardt’s logo" layout="constrained" />
 </SiteLayout>
+
+<style>
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

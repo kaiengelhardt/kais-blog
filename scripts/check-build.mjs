@@ -10,6 +10,6 @@ assert.match(html, /<meta name="viewport" content="width=device-width, initial-s
 assert.match(html, /<title>Kai Engelhardt<\/title>/);
 assert.match(html, /<meta name="description" content="[^"]+">/);
 assert.match(html, /<link rel="canonical" href="https:\/\/kaiengelhardt\.com\/">/);
-assert.match(html, /<main>\s*<h1>Kai Engelhardt<\/h1>/);
+assert.match(html, /<main\b[^>]*>\s*<h1\b[^>]*>Kai Engelhardt<\/h1>/);
 
 console.log('Passed build checks: homepage document, metadata, canonical URL, and page content.');
